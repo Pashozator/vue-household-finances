@@ -1,12 +1,18 @@
 <template>
-	<div>
-		Goals
+	<div class="wrapper">
+		<Goal></Goal>
 	</div>
 </template>
 
 <script>
+	import Goal from '../components/Goal'
+
 	export default {
-		name: 'goals',
-		components: {}
+		name: 'Goals',
+		components: { Goal }
 	}
 </script>
+
+<style lang="scss" scoped>
+
+</style>
