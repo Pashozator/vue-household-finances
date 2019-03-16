@@ -1,25 +1,27 @@
 <template>
 	<div id="app">
 		<header>
-			<header>
-				<div class="wrapper">
-					<div class="header-top">
-						<span class="header-top-logo">{{ title }}</span>
-						<a class="header-top-author">Autor</a>
-					</div>
-					<div class="header-links">
-						<div class="header-links-date">
-							{{ year }}
-						</div>
-						<nav>
-							<ul>
-								<li><router-link active-class="active" class="link" to="/history">Historia</router-link></li>
-								<li><router-link active-class="active" class="link" to="/goals">Cele</router-link></li>
-							</ul>
-						</nav>
-					</div>
+			<div class="wrapper">
+				<div class="header-top">
+					<span class="header-top-logo">{{ title }}</span>
+					<a class="header-top-author">Autor</a>
 				</div>
-			</header>
+				<div class="header-links">
+					<div class="header-links-date">
+						{{ year }}
+					</div>
+					<nav>
+						<ul>
+							<li>
+								<router-link active-class="active" class="link" to="/history">Historia</router-link>
+							</li>
+							<li>
+								<router-link active-class="active" class="link" to="/goals">Cele</router-link>
+							</li>
+						</ul>
+					</nav>
+				</div>
+			</div>
 		</header>
 		<router-view/>
 	</div>
@@ -29,7 +31,7 @@
 	export default {
 		name: 'app',
 		data: () => ({
-			year: 2018,
+			year: new Date().getFullYear(),
 			title: 'Domowe finanse'
 		})
 	}
