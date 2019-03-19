@@ -23,6 +23,21 @@
 				</div>
 			</div>
 		</header>
+		<v-menu top offset-y>
+			<template v-slot:activator="{ on }">
+				<v-btn class="fab" color="pink" dark absolute fab v-on="on">
+					<v-icon>add</v-icon>
+				</v-btn>
+			</template>
+			<v-list>
+				<v-list-tile @click="addOperation()">
+					<v-list-tile-title>Dodaj operację</v-list-tile-title>
+				</v-list-tile>
+				<v-list-tile @click="addGoal()">
+					<v-list-tile-title>Dodaj cel</v-list-tile-title>
+				</v-list-tile>
+			</v-list>
+		</v-menu>
 		<router-view/>
 	</div>
 </template>
@@ -33,7 +48,15 @@
 		data: () => ({
 			year: new Date().getFullYear(),
 			title: 'Domowe finanse'
-		})
+		}),
+		methods: {
+			addGoal: function () {
+				console.log('add goal')
+			},
+			addOperation: function () {
+				console.log('add operation')
+			}
+		}
 	}
 </script>
 
@@ -45,6 +68,16 @@
 	* {
 		box-sizing: border-box;
 		font-family: 'Roboto', sans-serif;
+	}
+
+	html, body {
+		width: 100%;
+		height: 100%;
+	}
+
+	.fab {
+		bottom: 20px;
+		right: 20px;
 	}
 
 	.wrapper {
