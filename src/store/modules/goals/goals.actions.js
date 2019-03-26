@@ -26,7 +26,8 @@ export const goalsActions = {
 		commit(ADD_GOAL, payload)
 	},
 	[ADD_GOAL_SUCCESS] ({ commit }, payload) {
-		commit(ADD_GOAL_SUCCESS, payload)
+		console.log(payload)
+		// commit(ADD_GOAL_SUCCESS, payload)
 	},
 	[ADD_GOAL_FAILURE] ({ commit }) {},
 	[EDIT_GOAL] ({ commit }, payload) {},

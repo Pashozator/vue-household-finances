@@ -1,10 +1,10 @@
-import { EntityAdapter } from 'entity-adapter'
 import { budgetMutations } from './budget.mutations'
 import { budgetActions } from './budget.actions'
+import { budgetAdapter } from './budget.adapter'
 
 export const budgetStore = {
 	state: {
-		operations: new EntityAdapter(),
+		operations: budgetAdapter.getInitialState(),
 		debit: 0
 	},
 	mutations: budgetMutations,

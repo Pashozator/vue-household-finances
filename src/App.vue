@@ -30,7 +30,7 @@
 				</v-btn>
 			</template>
 			<v-list>
-				<v-list-tile @click="addOperation()">
+				<v-list-tile @click="openAddOperationDialog()">
 					<v-list-tile-title>Dodaj operację</v-list-tile-title>
 				</v-list-tile>
 				<v-list-tile @click="addGoal()">
@@ -38,23 +38,31 @@
 				</v-list-tile>
 			</v-list>
 		</v-menu>
+		<AddOperationDialog :open="addOperationDialog" @close="closeOperationDialog()"></AddOperationDialog>
 		<router-view/>
 	</div>
 </template>
 
 <script>
+	import AddOperationDialog from './components/dialogs/AddOperationDialog'
+
 	export default {
 		name: 'app',
+		components: { AddOperationDialog },
 		data: () => ({
 			year: new Date().getFullYear(),
-			title: 'Domowe finanse'
+			title: 'Domowe finanse',
+			addOperationDialog: false
 		}),
 		methods: {
 			addGoal: function () {
 				console.log('add goal')
 			},
-			addOperation: function () {
-				console.log('add operation')
+			openAddOperationDialog: function () {
+				this.addOperationDialog = true
+			},
+			closeOperationDialog: function () {
+				this.addOperationDialog = false
 			}
 		}
 	}

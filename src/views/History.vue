@@ -1,16 +1,23 @@
 <template>
 	<div class="wrapper">
 		<h3>Aktualny stan budżetu: 1000</h3>
-		<Operation></Operation>
+		<Operation v-for="operation in operations" :operation="operation" :key="operation.id"></Operation>
 	</div>
 </template>
 
 <script>
 	import Operation from '../components/Operation'
+	import { mapGetters } from 'vuex'
 
 	export default {
 		name: 'History',
-		components: { Operation }
+		components: { Operation },
+		data: () => ({}),
+		computed: {
+			...mapGetters({
+				operations: 'getOperations'
+			})
+		}
 	}
 </script>
 

@@ -13,33 +13,35 @@ import {
 	REMOVE_OPERATION_FAILURE,
 	REMOVE_OPERATION_SUCCESS
 } from './budget.mutation-types'
+import { budgetAdapter } from './budget.adapter'
 
 export const budgetMutations = {
 	[GET_BUDGET] (state) {
 	},
 	[GET_BUDGET_SUCCESS] (state, payload) {
-		state.replaceAll(payload)
+		budgetAdapter.replaceAll(payload, state.operations)
 	},
 	[GET_BUDGET_FAILURE] (state) {
 	},
 	[ADD_OPERATION] (state, payload) {
 	},
 	[ADD_OPERATION_SUCCESS] (state, payload) {
-		state.addOne(payload)
+		budgetAdapter.addOne(payload, state.operations)
+		console.log(state)
 	},
 	[ADD_OPERATION_FAILURE] (state) {
 	},
 	[EDIT_OPERATION] (state, payload) {
 	},
 	[EDIT_OPERATION_SUCCESS] (state, payload) {
-		state.updateOne(payload.id, payload)
+		budgetAdapter.updateOne({ id: payload.id, changes: payload }, state.operations)
 	},
 	[EDIT_OPERATION_FAILURE] (state) {
 	},
 	[REMOVE_OPERATION] (state, payload) {
 	},
 	[REMOVE_OPERATION_SUCCESS] (state, payload) {
-		state.removeOne(payload.id)
+		budgetAdapter.removeOne(payload.id, state.operations)
 	},
 	[REMOVE_OPERATION_FAILURE] (state) {
 	},

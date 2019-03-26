@@ -1,9 +1,9 @@
 import { goalsMutations } from './goals.mutations'
 import { goalsActions } from './goals.actions'
-import { EntityAdapter } from 'entity-adapter'
+import { goalsAdapter } from './goals.adapter'
 
 export const goalsStore = {
-	state: new EntityAdapter(),
+	state: goalsAdapter.getInitialState(),
 	mutations: goalsMutations,
 	actions: goalsActions,
 	getters: {}

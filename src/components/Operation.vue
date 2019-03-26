@@ -13,8 +13,8 @@
 			</div>
 		</div>
 		<v-card-actions>
-			<v-btn flat color="red" @click="remove()">Usuń</v-btn>
-			<v-btn flat @click="edit()">Edytuj</v-btn>
+			<v-btn @click="remove()" color="red" flat>Usuń</v-btn>
+			<v-btn @click="edit()" flat>Edytuj</v-btn>
 		</v-card-actions>
 	</v-card>
 </template>
@@ -22,14 +22,8 @@
 <script>
 	export default {
 		name: 'Operation',
-		data: () => ({
-			operation: {
-				date: '13.03.2019',
-				label: 'Wypłata',
-				value: 1000,
-				description: 'Donec rutrum enim eget quam fringilla consequat. Maecenas tincidunt purus elit, ut imperdiet nisl molestie id. Vestibulum vehicula dui nec sodales scelerisque. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a erat feugiat, dapibus urna in, bibendum diam. Integer laoreet commodo gravida. '
-			}
-		}),
+		props: ['operation'],
+		data: () => ({}),
 		methods: {
 			remove: function () {
 				console.log('remove operation')
