@@ -69,6 +69,7 @@
 				immediate: true,
 				handler (value, oldValue) {
 					if (!value) {
+						this.clear()
 						this.$emit('close', true)
 					}
 				}
