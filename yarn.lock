@@ -3109,10 +3109,10 @@ entities@^1.1.1:
   resolved "https://registry.yarnpkg.com/entities/-/entities-1.1.2.tgz#bdfa735299664dfafd34529ed4f8522a275fea56"
   integrity sha512-f2LZMYl1Fzu7YSBKg+RoROelpOaNrcGmE9AZubeDfrCEia483oW4MI4VyFd5VNHIgQ/7qm1I0wUHK1eJnn2y2w==
 
-entity-adapter@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/entity-adapter/-/entity-adapter-1.1.0.tgz#43c956277cd204abe9d99c569574caf60ded1ac4"
-  integrity sha512-/XEXv3IgX0bsLBINZ78CnE5QolKNxHXrNFLWDVsmgU/ky2EoqmxmLB9GHEZBqvIYovlbP2S4l4jL8vgZdACFFA==
+entity-adapter@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/entity-adapter/-/entity-adapter-1.2.0.tgz#9a954e761fce606e3f003ee375c3183c982a6d9a"
+  integrity sha512-4kZ2YwQi1gOVh8FBzfxzywkGgcLckruTzt+R5uXOqy8BajulfkvHXjUNqrE6MEigv8cxaJf/idX6c+wvIqPheg==
 
 errno@^0.1.3, errno@~0.1.7:
   version "0.1.7"

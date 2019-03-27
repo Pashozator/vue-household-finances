@@ -1,6 +1,6 @@
 <template>
 	<div class="wrapper">
-		<h3>Aktualny stan budżetu: 1000</h3>
+		<h3>Aktualny stan budżetu: {{ debit }}</h3>
 		<Operation v-for="operation in operations" :operation="operation" :key="operation.id"></Operation>
 	</div>
 </template>
@@ -15,7 +15,8 @@
 		data: () => ({}),
 		computed: {
 			...mapGetters({
-				operations: 'getOperations'
+				operations: 'getOperations',
+				debit: 'getDebit'
 			})
 		}
 	}
