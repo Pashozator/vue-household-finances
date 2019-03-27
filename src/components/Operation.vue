@@ -26,7 +26,7 @@
 		data: () => ({}),
 		methods: {
 			remove: function () {
-				console.log('remove operation')
+				this.$emit('remove', this.operation)
 			},
 			edit: function () {
 				console.log('edit operation')

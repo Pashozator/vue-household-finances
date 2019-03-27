@@ -17,34 +17,44 @@ import {
 } from './goals.mutation-types'
 
 export const goalsActions = {
-	[GET_GOALS] ({ commit }, payload) {},
+	async [GET_GOALS] ({ dispatch }, payload) {
+		await dispatch(GET_GOALS_SUCCESS, payload)
+	},
 	[GET_GOALS_SUCCESS] ({ commit }, payload) {
 		commit(GET_GOALS_SUCCESS, payload)
 	},
-	[GET_GOALS_FAILURE] ({ commit }) {},
-	[ADD_GOAL] ({ commit }, payload) {
-		commit(ADD_GOAL, payload)
+	[GET_GOALS_FAILURE] ({ commit }) {
+	},
+	async [ADD_GOAL] ({ dispatch }, payload) {
+		await dispatch(ADD_GOAL_SUCCESS, payload)
 	},
 	[ADD_GOAL_SUCCESS] ({ commit }, payload) {
-		console.log(payload)
-		// commit(ADD_GOAL_SUCCESS, payload)
+		commit(ADD_GOAL_SUCCESS, payload)
 	},
-	[ADD_GOAL_FAILURE] ({ commit }) {},
-	[EDIT_GOAL] ({ commit }, payload) {},
+	[ADD_GOAL_FAILURE] ({ commit }) {
+	},
+	async [EDIT_GOAL] ({ dispatch }, payload) {
+		await dispatch(EDIT_GOAL_SUCCESS, payload)
+	},
 	[EDIT_GOAL_SUCCESS] ({ commit }, payload) {
 		commit(EDIT_GOAL_SUCCESS, payload)
 	},
-	[EDIT_GOAL_FAILURE] ({ commit }) {},
-	[REMOVE_GOAL] ({ commit }, payload) {
-		commit(REMOVE_GOAL, payload)
+	[EDIT_GOAL_FAILURE] ({ commit }) {
+	},
+	async [REMOVE_GOAL] ({ dispatch }, payload) {
+		await dispatch(REMOVE_GOAL_SUCCESS, payload)
 	},
 	[REMOVE_GOAL_SUCCESS] ({ commit }, payload) {
 		commit(REMOVE_GOAL_SUCCESS, payload)
 	},
-	[REMOVE_GOAL_FAILURE] ({ commit }) {},
-	[REALIZE_GOAL] ({ commit }, payload) {},
+	[REMOVE_GOAL_FAILURE] ({ commit }) {
+	},
+	async [REALIZE_GOAL] ({ dispatch }, payload) {
+		await dispatch(REALIZE_GOAL_SUCCESS, payload)
+	},
 	[REALIZE_GOAL_SUCCESS] ({ commit }, payload) {
 		commit(REALIZE_GOAL_SUCCESS, payload)
 	},
-	[REALIZE_GOAL_FAILURE] ({ commit }) {}
+	[REALIZE_GOAL_FAILURE] ({ commit }) {
+	}
 }

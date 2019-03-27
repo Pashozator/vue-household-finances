@@ -15,13 +15,14 @@ import {
 } from './budget.mutation-types'
 
 export const budgetActions = {
-	[GET_BUDGET] ({ commit }) {
+	async [GET_BUDGET] ({ dispatch }) {
+		await dispatch(GET_BUDGET_SUCCESS)
 	},
 	[GET_BUDGET_SUCCESS] ({ commit }, payload) {
 	},
 	[GET_BUDGET_FAILURE] ({ commit }) {
 	},
-	async [ADD_OPERATION] ({ dispatch, commit }, payload) {
+	async [ADD_OPERATION] ({ dispatch }, payload) {
 		await dispatch(ADD_OPERATION_SUCCESS, payload)
 	},
 	[ADD_OPERATION_SUCCESS] ({ commit }, payload) {
@@ -29,18 +30,22 @@ export const budgetActions = {
 	},
 	[ADD_OPERATION_FAILURE] ({ commit }) {
 	},
-	[EDIT_OPERATION] ({ commit }, payload) {
+	async [EDIT_OPERATION] ({ dispatch }, payload) {
+		await dispatch(EDIT_OPERATION_SUCCESS, payload)
 	},
 	[EDIT_OPERATION_SUCCESS] ({ commit }, payload) {
 	},
 	[EDIT_OPERATION_FAILURE] ({ commit }) {
 	},
-	[REMOVE_OPERATION] ({ commit }, payload) {
+	async [REMOVE_OPERATION] ({ dispatch }, payload) {
+		await dispatch(REMOVE_OPERATION_SUCCESS, payload)
 	},
 	[REMOVE_OPERATION_SUCCESS] ({ commit }, payload) {
+		commit(REMOVE_OPERATION_SUCCESS, payload)
 	},
 	[REMOVE_OPERATION_FAILURE] ({ commit }) {
 	},
-	[REDUCE_DEBIT] ({ commit }) {
+	[REDUCE_DEBIT] ({ commit }, payload) {
+		commit(REDUCE_DEBIT, payload)
 	}
 }

@@ -1,13 +1,14 @@
 <template>
 	<div class="wrapper">
 		<h3>Aktualny stan budżetu: {{ debit }}</h3>
-		<Operation v-for="operation in operations" :operation="operation" :key="operation.id"></Operation>
+		<Operation v-for="operation in operations" :operation="operation" :key="operation.id" @remove="remove($event)"></Operation>
 	</div>
 </template>
 
 <script>
 	import Operation from '../components/Operation'
-	import { mapGetters } from 'vuex'
+	import { mapActions, mapGetters } from 'vuex'
+	import { REMOVE_OPERATION } from '../store/modules/budget/budget.mutation-types'
 
 	export default {
 		name: 'History',
@@ -17,6 +18,11 @@
 			...mapGetters({
 				operations: 'getOperations',
 				debit: 'getDebit'
+			})
+		},
+		methods: {
+			...mapActions({
+				remove: REMOVE_OPERATION
 			})
 		}
 	}
