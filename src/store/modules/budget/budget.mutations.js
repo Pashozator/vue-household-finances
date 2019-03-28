@@ -47,6 +47,7 @@ export const budgetMutations = {
 	},
 	[REMOVE_OPERATION_FAILURE] (state) {
 	},
-	[REDUCE_DEBIT] (state) {
+	[REDUCE_DEBIT] (state, payload) {
+		state.debit -= payload
 	}
 }

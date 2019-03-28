@@ -15,6 +15,7 @@ import {
 	REMOVE_GOAL_FAILURE,
 	REMOVE_GOAL_SUCCESS
 } from './goals.mutation-types'
+import { REDUCE_DEBIT } from '../budget/budget.mutation-types'
 
 export const goalsActions = {
 	async [GET_GOALS] ({ dispatch }, payload) {
@@ -51,6 +52,7 @@ export const goalsActions = {
 	},
 	async [REALIZE_GOAL] ({ dispatch }, payload) {
 		await dispatch(REALIZE_GOAL_SUCCESS, payload)
+		await dispatch(REDUCE_DEBIT, payload.value)
 	},
 	[REALIZE_GOAL_SUCCESS] ({ commit }, payload) {
 		commit(REALIZE_GOAL_SUCCESS, payload)
