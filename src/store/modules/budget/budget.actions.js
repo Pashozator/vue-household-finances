@@ -15,10 +15,11 @@ import {
 } from './budget.mutation-types'
 
 export const budgetActions = {
-	async [GET_BUDGET] ({ dispatch }) {
-		await dispatch(GET_BUDGET_SUCCESS)
+	async [GET_BUDGET] ({ dispatch }, payload) {
+		await dispatch(GET_BUDGET_SUCCESS, payload)
 	},
 	[GET_BUDGET_SUCCESS] ({ commit }, payload) {
+		commit(GET_BUDGET_SUCCESS, payload)
 	},
 	[GET_BUDGET_FAILURE] ({ commit }) {
 	},
@@ -34,6 +35,7 @@ export const budgetActions = {
 		await dispatch(EDIT_OPERATION_SUCCESS, payload)
 	},
 	[EDIT_OPERATION_SUCCESS] ({ commit }, payload) {
+		commit(EDIT_OPERATION_SUCCESS, payload)
 	},
 	[EDIT_OPERATION_FAILURE] ({ commit }) {
 	},

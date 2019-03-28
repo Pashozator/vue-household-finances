@@ -29,7 +29,7 @@
 				this.$emit('remove', this.operation)
 			},
 			edit: function () {
-				console.log('edit operation')
+				this.$emit('edit', this.operation)
 			}
 		}
 	}

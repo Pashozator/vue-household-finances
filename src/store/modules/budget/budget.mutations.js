@@ -35,6 +35,7 @@ export const budgetMutations = {
 	[EDIT_OPERATION] (state, payload) {
 	},
 	[EDIT_OPERATION_SUCCESS] (state, payload) {
+		state.debit = state.debit - payload.oldValue + payload.value
 		Vue.set(state, 'operations', budgetAdapter.updateOne({ id: payload.id, changes: payload }, state.operations))
 	},
 	[EDIT_OPERATION_FAILURE] (state) {
