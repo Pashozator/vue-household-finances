@@ -4,7 +4,6 @@
 			<div class="wrapper">
 				<div class="header-top">
 					<span class="header-top-logo">{{ title }}</span>
-					<a class="header-top-author">Autor</a>
 				</div>
 				<div class="header-links">
 					<div class="header-links-date">
@@ -120,11 +119,6 @@
 				float: left;
 				font-size: 19px;
 				font-weight: 700;
-			}
-
-			.header-top-author {
-				float: right;
-				cursor: pointer;
 			}
 		}
 
