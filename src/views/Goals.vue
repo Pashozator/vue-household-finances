@@ -8,6 +8,7 @@
 <script>
 	import Goal from '../components/Goal'
 	import { mapActions, mapGetters } from 'vuex'
+	import { GET_BUDGET } from '../store/modules/budget/budget.mutation-types'
 	import { GET_GOALS, REALIZE_GOAL, REMOVE_GOAL } from '../store/modules/goals/goals.mutation-types'
 	import EditGoalDialog from '../components/dialogs/EditGoalDialog'
 
@@ -25,11 +26,13 @@
 			})
 		},
 		mounted () {
+			this.getBudget()
 			this.getGoals()
 		},
 		methods: {
 			...mapActions({
 				getGoals: GET_GOALS,
+				getBudget: GET_BUDGET,
 				remove: REMOVE_GOAL,
 				realize: REALIZE_GOAL
 			}),
