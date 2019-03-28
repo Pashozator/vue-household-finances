@@ -13,7 +13,7 @@ import {
 	REMOVE_OPERATION_FAILURE,
 	REMOVE_OPERATION_SUCCESS
 } from './budget.mutation-types'
-import { api } from '../../../services/api.service'
+import { api } from '../../../services/budget.api'
 
 export const budgetActions = {
 	async [GET_BUDGET] ({ dispatch }) {

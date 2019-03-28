@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-class ApiService {
+class BudgetApi {
 	constructor () {
 		this.base = '/api/budget'
 	}
@@ -22,4 +22,4 @@ class ApiService {
 	}
 }
 
-export const api = new ApiService()
+export const api = new BudgetApi()
