@@ -68,6 +68,14 @@ export const goalsActions = {
 	[EDIT_GOAL_FAILURE] ({ commit }) {
 	},
 	async [REMOVE_GOAL] ({ dispatch }, payload) {
+		const response = await goalsApi.removeGoal(payload)
+
+		if (response.error != null) {
+			await dispatch(REMOVE_GOAL_FAILURE)
+
+			return
+		}
+
 		await dispatch(REMOVE_GOAL_SUCCESS, payload)
 	},
 	[REMOVE_GOAL_SUCCESS] ({ commit }, payload) {
