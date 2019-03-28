@@ -22,4 +22,4 @@ class BudgetApi {
 	}
 }
 
-export const api = new BudgetApi()
+export const budgetApi = new BudgetApi()
