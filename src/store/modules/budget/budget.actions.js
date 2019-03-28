@@ -28,7 +28,7 @@ export const budgetActions = {
 		await dispatch(GET_BUDGET_SUCCESS, response.data)
 	},
 	[GET_BUDGET_SUCCESS] ({ commit }, payload) {
-		commit(GET_BUDGET_SUCCESS, payload)
+		commit(GET_BUDGET, payload)
 	},
 	[GET_BUDGET_FAILURE] ({ commit }) {
 	},
@@ -44,7 +44,7 @@ export const budgetActions = {
 		await dispatch(ADD_OPERATION_SUCCESS, response.data)
 	},
 	[ADD_OPERATION_SUCCESS] ({ commit }, payload) {
-		commit(ADD_OPERATION_SUCCESS, payload)
+		commit(ADD_OPERATION, payload)
 	},
 	[ADD_OPERATION_FAILURE] ({ commit }) {
 	},
@@ -60,7 +60,7 @@ export const budgetActions = {
 		await dispatch(EDIT_OPERATION_SUCCESS, payload)
 	},
 	[EDIT_OPERATION_SUCCESS] ({ commit }, payload) {
-		commit(EDIT_OPERATION_SUCCESS, payload)
+		commit(EDIT_OPERATION, payload)
 	},
 	[EDIT_OPERATION_FAILURE] ({ commit }) {
 	},
@@ -76,7 +76,7 @@ export const budgetActions = {
 		await dispatch(REMOVE_OPERATION_SUCCESS, payload)
 	},
 	[REMOVE_OPERATION_SUCCESS] ({ commit }, payload) {
-		commit(REMOVE_OPERATION_SUCCESS, payload)
+		commit(REMOVE_OPERATION, payload)
 	},
 	[REMOVE_OPERATION_FAILURE] ({ commit }) {
 	},

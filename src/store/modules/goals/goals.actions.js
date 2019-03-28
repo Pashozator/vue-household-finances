@@ -31,7 +31,7 @@ export const goalsActions = {
 		await dispatch(GET_GOALS_SUCCESS, response.data)
 	},
 	[GET_GOALS_SUCCESS] ({ commit }, payload) {
-		commit(GET_GOALS_SUCCESS, payload)
+		commit(GET_GOALS, payload)
 	},
 	[GET_GOALS_FAILURE] ({ commit }) {
 	},
@@ -47,7 +47,7 @@ export const goalsActions = {
 		await dispatch(ADD_GOAL_SUCCESS, response.data)
 	},
 	[ADD_GOAL_SUCCESS] ({ commit }, payload) {
-		commit(ADD_GOAL_SUCCESS, payload)
+		commit(ADD_GOAL, payload)
 	},
 	[ADD_GOAL_FAILURE] ({ commit }) {
 	},
@@ -63,7 +63,7 @@ export const goalsActions = {
 		await dispatch(EDIT_GOAL_SUCCESS, payload)
 	},
 	[EDIT_GOAL_SUCCESS] ({ commit }, payload) {
-		commit(EDIT_GOAL_SUCCESS, payload)
+		commit(EDIT_GOAL, payload)
 	},
 	[EDIT_GOAL_FAILURE] ({ commit }) {
 	},
@@ -79,7 +79,7 @@ export const goalsActions = {
 		await dispatch(REMOVE_GOAL_SUCCESS, payload)
 	},
 	[REMOVE_GOAL_SUCCESS] ({ commit }, payload) {
-		commit(REMOVE_GOAL_SUCCESS, payload)
+		commit(REMOVE_GOAL, payload)
 	},
 	[REMOVE_GOAL_FAILURE] ({ commit }) {
 	},
@@ -96,7 +96,7 @@ export const goalsActions = {
 		await dispatch(REDUCE_DEBIT, payload.value)
 	},
 	[REALIZE_GOAL_SUCCESS] ({ commit }, payload) {
-		commit(REALIZE_GOAL_SUCCESS, payload)
+		commit(REALIZE_GOAL, payload)
 	},
 	[REALIZE_GOAL_FAILURE] ({ commit }) {
 	}
