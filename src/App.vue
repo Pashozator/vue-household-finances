@@ -40,6 +40,7 @@
 		<AddGoalDialog :open="addGoalDialog" @close="closeAddGoalDialog"></AddGoalDialog>
 		<AddOperationDialog :open="addOperationDialog" @close="closeAddOperationDialog()"></AddOperationDialog>
 		<LoaderDialog></LoaderDialog>
+		<ErrorDialog></ErrorDialog>
 		<router-view/>
 	</div>
 </template>
@@ -48,10 +49,12 @@
 	import AddOperationDialog from './components/dialogs/AddOperationDialog'
 	import AddGoalDialog from './components/dialogs/AddGoalDialog'
 	import LoaderDialog from './components/dialogs/LoaderDialog'
+	import ErrorDialog from './components/dialogs/ErrorDialog'
 
 	export default {
 		name: 'app',
 		components: {
+			ErrorDialog,
 			AddGoalDialog,
 			AddOperationDialog,
 			LoaderDialog
