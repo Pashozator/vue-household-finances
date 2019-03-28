@@ -65,6 +65,14 @@ export const budgetActions = {
 	[EDIT_OPERATION_FAILURE] ({ commit }) {
 	},
 	async [REMOVE_OPERATION] ({ dispatch }, payload) {
+		const response = await api.removeOperation(payload)
+
+		if (response.error != null) {
+			await dispatch(REMOVE_OPERATION_FAILURE)
+
+			return
+		}
+
 		await dispatch(REMOVE_OPERATION_SUCCESS, payload)
 	},
 	[REMOVE_OPERATION_SUCCESS] ({ commit }, payload) {
