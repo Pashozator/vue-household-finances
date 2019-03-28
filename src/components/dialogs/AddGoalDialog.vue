@@ -66,8 +66,9 @@
 				this.add({
 					id: this.form.id,
 					label: this.form.label,
-					value: this.form.value,
-					description: this.form.description
+					value: parseFloat(this.form.value),
+					description: this.form.description,
+					realized: false
 				})
 
 				this.clear()

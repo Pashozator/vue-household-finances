@@ -27,6 +27,7 @@ export const budgetMutations = {
 	[ADD_OPERATION] (state, payload) {
 	},
 	[ADD_OPERATION_SUCCESS] (state, payload) {
+		state.debit += payload.value
 		Vue.set(state, 'operations', budgetAdapter.addOne(payload, state.operations))
 	},
 	[ADD_OPERATION_FAILURE] (state) {
@@ -41,6 +42,7 @@ export const budgetMutations = {
 	[REMOVE_OPERATION] (state, payload) {
 	},
 	[REMOVE_OPERATION_SUCCESS] (state, payload) {
+		state.debit -= payload.value
 		Vue.set(state, 'operations', budgetAdapter.removeOne(payload.id, state.operations))
 	},
 	[REMOVE_OPERATION_FAILURE] (state) {

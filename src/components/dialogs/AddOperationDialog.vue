@@ -85,7 +85,7 @@
 				this.add({
 					id: this.form.id,
 					label: this.form.label,
-					value: this.form.value,
+					value: parseFloat(this.form.value),
 					date: this.form.date,
 					description: this.form.description
 				})

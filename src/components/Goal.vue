@@ -13,7 +13,7 @@
 			</div>
 			<!--TODO: add progress bar-->
 		</div>
-		<v-card-actions>
+		<v-card-actions v-if="!goal.realized">
 			<v-btn flat color="primary" @click="realize()" :disabled="goal.value > debit || goal.realized">
 				Realizuj
 			</v-btn>
@@ -30,7 +30,7 @@
 		data: () => ({}),
 		methods: {
 			realize: function () {
-				console.log('realize goal')
+				this.$emit('realize', this.goal)
 			},
 			remove: function () {
 				this.$emit('remove', this.goal)
