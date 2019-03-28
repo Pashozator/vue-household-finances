@@ -28,7 +28,7 @@ export const goalsActions = {
 			return
 		}
 
-		await dispatch(GET_GOALS_SUCCESS, payload)
+		await dispatch(GET_GOALS_SUCCESS, response.data)
 	},
 	[GET_GOALS_SUCCESS] ({ commit }, payload) {
 		commit(GET_GOALS_SUCCESS, payload)
@@ -44,7 +44,7 @@ export const goalsActions = {
 			return
 		}
 
-		await dispatch(ADD_GOAL_SUCCESS, payload)
+		await dispatch(ADD_GOAL_SUCCESS, response.data)
 	},
 	[ADD_GOAL_SUCCESS] ({ commit }, payload) {
 		commit(ADD_GOAL_SUCCESS, payload)
