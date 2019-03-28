@@ -3109,10 +3109,12 @@ entities@^1.1.1:
   resolved "https://registry.yarnpkg.com/entities/-/entities-1.1.2.tgz#bdfa735299664dfafd34529ed4f8522a275fea56"
   integrity sha512-f2LZMYl1Fzu7YSBKg+RoROelpOaNrcGmE9AZubeDfrCEia483oW4MI4VyFd5VNHIgQ/7qm1I0wUHK1eJnn2y2w==
 
-entity-adapter@^1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/entity-adapter/-/entity-adapter-1.2.0.tgz#9a954e761fce606e3f003ee375c3183c982a6d9a"
-  integrity sha512-4kZ2YwQi1gOVh8FBzfxzywkGgcLckruTzt+R5uXOqy8BajulfkvHXjUNqrE6MEigv8cxaJf/idX6c+wvIqPheg==
+entity-adapter@^1.3.0:
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/entity-adapter/-/entity-adapter-1.3.0.tgz#7d0064ba7f780387ba08fcf3cc7c3105cdfe3647"
+  integrity sha512-AfkXi1nXJtu0H7QVDIPj2gWl0HdCszathOGGSUBemdILtvwSUJ7473Ci4o3M+yeeB23us6pDEAuwbVGdKN1WsQ==
+  dependencies:
+    lodash "^4.17.11"
 
 errno@^0.1.3, errno@~0.1.7:
   version "0.1.7"
