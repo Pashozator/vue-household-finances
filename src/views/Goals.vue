@@ -1,6 +1,7 @@
 <template>
 	<div class="wrapper">
-		<Goal :debit="debit" :goal="goal" :key="goal.id" @realize="realize($event)" @remove="remove($event)" v-for="goal in goals"></Goal>
+		<Goal :debit="debit" :goal="goal" :key="goal.id" @realize="realize($event)" @remove="remove($event)" @edit="openEditGoalDialog($event)" v-for="goal in goals"></Goal>
+		<EditGoalDialog :open="editGoalDialog" :goal="goal" @close="closeEditGoalDialog()"></EditGoalDialog>
 	</div>
 </template>
 
@@ -8,11 +9,15 @@
 	import Goal from '../components/Goal'
 	import { mapActions, mapGetters } from 'vuex'
 	import { REALIZE_GOAL, REMOVE_GOAL } from '../store/modules/goals/goals.mutation-types'
+	import EditGoalDialog from '../components/dialogs/EditGoalDialog'
 
 	export default {
 		name: 'Goals',
-		components: { Goal },
-		data: () => ({}),
+		components: { EditGoalDialog, Goal },
+		data: () => ({
+			editGoalDialog: false,
+			goal: null
+		}),
 		computed: {
 			...mapGetters({
 				goals: 'getGoals',
@@ -23,7 +28,14 @@
 			...mapActions({
 				remove: REMOVE_GOAL,
 				realize: REALIZE_GOAL
-			})
+			}),
+			openEditGoalDialog: function (goal) {
+				this.goal = goal
+				this.editGoalDialog = true
+			},
+			closeEditGoalDialog: function () {
+				this.editGoalDialog = false
+			}
 		}
 	}
 </script>

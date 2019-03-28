@@ -36,7 +36,7 @@
 				this.$emit('remove', this.goal)
 			},
 			edit: function () {
-				console.log('edit goal')
+				this.$emit('edit', this.goal)
 			}
 		}
 	}

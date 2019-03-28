@@ -1,7 +1,7 @@
 <template>
 	<v-dialog max-width="600" v-model="dialog">
 		<v-card>
-			<v-card-title class="headline">Dodaj operację</v-card-title>
+			<v-card-title class="headline">Edytuj operację</v-card-title>
 
 			<v-form class="form">
 				<v-text-field label="Nazwa" required v-model="form.label"></v-text-field>
