@@ -19,7 +19,7 @@ import { REDUCE_DEBIT } from '../budget/budget.mutation-types'
 import { goalsApi } from '../../../services/goals.api'
 
 export const goalsActions = {
-	async [GET_GOALS] ({ dispatch }, payload) {
+	async [GET_GOALS] ({ dispatch }) {
 		const response = await goalsApi.getGoals()
 
 		if (response.error != null) {
