@@ -1,4 +1,4 @@
-<template>
+<template xmlns:v-slot="http://www.w3.org/1999/XSL/Transform">
 	<div id="app">
 		<header>
 			<div class="wrapper">
@@ -39,6 +39,7 @@
 		</v-menu>
 		<AddGoalDialog :open="addGoalDialog" @close="closeAddGoalDialog"></AddGoalDialog>
 		<AddOperationDialog :open="addOperationDialog" @close="closeAddOperationDialog()"></AddOperationDialog>
+		<LoaderDialog></LoaderDialog>
 		<router-view/>
 	</div>
 </template>
@@ -46,12 +47,14 @@
 <script>
 	import AddOperationDialog from './components/dialogs/AddOperationDialog'
 	import AddGoalDialog from './components/dialogs/AddGoalDialog'
+	import LoaderDialog from './components/dialogs/LoaderDialog'
 
 	export default {
 		name: 'app',
 		components: {
 			AddGoalDialog,
-			AddOperationDialog
+			AddOperationDialog,
+			LoaderDialog
 		},
 		data: () => ({
 			year: new Date().getFullYear(),

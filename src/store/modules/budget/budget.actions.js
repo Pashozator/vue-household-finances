@@ -14,10 +14,15 @@ import {
 	REMOVE_OPERATION_SUCCESS
 } from './budget.mutation-types'
 import { budgetApi } from '../../../services/budget.api'
+import { HIDE_LOADER, SHOW_LOADER } from '../loader/loader.mutations-types'
 
 export const budgetActions = {
 	async [GET_BUDGET] ({ dispatch }) {
+		await dispatch(SHOW_LOADER)
+
 		const response = await budgetApi.getBudget()
+
+		await dispatch(HIDE_LOADER)
 
 		if (response.error != null) {
 			await dispatch(GET_BUDGET_FAILURE)
@@ -33,7 +38,11 @@ export const budgetActions = {
 	[GET_BUDGET_FAILURE] ({ commit }) {
 	},
 	async [ADD_OPERATION] ({ dispatch }, payload) {
+		await dispatch(SHOW_LOADER)
+
 		const response = await budgetApi.addOperation(payload)
+
+		await dispatch(HIDE_LOADER)
 
 		if (response.error != null) {
 			await dispatch(ADD_OPERATION_FAILURE)
@@ -49,7 +58,11 @@ export const budgetActions = {
 	[ADD_OPERATION_FAILURE] ({ commit }) {
 	},
 	async [EDIT_OPERATION] ({ dispatch }, payload) {
+		await dispatch(SHOW_LOADER)
+
 		const response = await budgetApi.editOperation(payload)
+
+		await dispatch(HIDE_LOADER)
 
 		if (response.error != null) {
 			await dispatch(EDIT_OPERATION_FAILURE)
@@ -65,7 +78,11 @@ export const budgetActions = {
 	[EDIT_OPERATION_FAILURE] ({ commit }) {
 	},
 	async [REMOVE_OPERATION] ({ dispatch }, payload) {
+		await dispatch(SHOW_LOADER)
+
 		const response = await budgetApi.removeOperation(payload)
+
+		await dispatch(HIDE_LOADER)
 
 		if (response.error != null) {
 			await dispatch(REMOVE_OPERATION_FAILURE)

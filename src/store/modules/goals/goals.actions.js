@@ -17,10 +17,15 @@ import {
 } from './goals.mutation-types'
 import { REDUCE_DEBIT } from '../budget/budget.mutation-types'
 import { goalsApi } from '../../../services/goals.api'
+import { HIDE_LOADER, SHOW_LOADER } from '../loader/loader.mutations-types'
 
 export const goalsActions = {
 	async [GET_GOALS] ({ dispatch }) {
+		await dispatch(SHOW_LOADER)
+
 		const response = await goalsApi.getGoals()
+
+		await dispatch(HIDE_LOADER)
 
 		if (response.error != null) {
 			await dispatch(GET_GOALS_FAILURE)
@@ -36,7 +41,11 @@ export const goalsActions = {
 	[GET_GOALS_FAILURE] ({ commit }) {
 	},
 	async [ADD_GOAL] ({ dispatch }, payload) {
+		await dispatch(SHOW_LOADER)
+
 		const response = await goalsApi.addGoal(payload)
+
+		await dispatch(HIDE_LOADER)
 
 		if (response.error != null) {
 			await dispatch(ADD_GOAL_FAILURE)
@@ -52,7 +61,11 @@ export const goalsActions = {
 	[ADD_GOAL_FAILURE] ({ commit }) {
 	},
 	async [EDIT_GOAL] ({ dispatch }, payload) {
+		await dispatch(SHOW_LOADER)
+
 		const response = await goalsApi.editGoal(payload)
+
+		await dispatch(HIDE_LOADER)
 
 		if (response.error != null) {
 			await dispatch(EDIT_GOAL_FAILURE)
@@ -68,7 +81,11 @@ export const goalsActions = {
 	[EDIT_GOAL_FAILURE] ({ commit }) {
 	},
 	async [REMOVE_GOAL] ({ dispatch }, payload) {
+		await dispatch(SHOW_LOADER)
+
 		const response = await goalsApi.removeGoal(payload)
+
+		await dispatch(HIDE_LOADER)
 
 		if (response.error != null) {
 			await dispatch(REMOVE_GOAL_FAILURE)
@@ -84,7 +101,11 @@ export const goalsActions = {
 	[REMOVE_GOAL_FAILURE] ({ commit }) {
 	},
 	async [REALIZE_GOAL] ({ dispatch }, payload) {
+		await dispatch(SHOW_LOADER)
+
 		const response = await goalsApi.realizeGoal(payload)
+
+		await dispatch(HIDE_LOADER)
 
 		if (response.error != null) {
 			await dispatch(REALIZE_GOAL_FAILURE)
