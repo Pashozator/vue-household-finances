@@ -33,7 +33,15 @@ export const budgetActions = {
 	[GET_BUDGET_FAILURE] ({ commit }) {
 	},
 	async [ADD_OPERATION] ({ dispatch }, payload) {
-		await dispatch(ADD_OPERATION_SUCCESS, payload)
+		const response = await api.addOperation(payload)
+
+		if (response.error != null) {
+			await dispatch(ADD_OPERATION_FAILURE)
+
+			return
+		}
+
+		await dispatch(ADD_OPERATION_SUCCESS, response.data)
 	},
 	[ADD_OPERATION_SUCCESS] ({ commit }, payload) {
 		commit(ADD_OPERATION_SUCCESS, payload)
