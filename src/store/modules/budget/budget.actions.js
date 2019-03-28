@@ -13,10 +13,19 @@ import {
 	REMOVE_OPERATION_FAILURE,
 	REMOVE_OPERATION_SUCCESS
 } from './budget.mutation-types'
+import { api } from '../../../services/api.service'
 
 export const budgetActions = {
-	async [GET_BUDGET] ({ dispatch }, payload) {
-		await dispatch(GET_BUDGET_SUCCESS, payload)
+	async [GET_BUDGET] ({ dispatch }) {
+		const response = await api.getBudget()
+
+		if (response.error != null) {
+			await dispatch(GET_BUDGET_FAILURE)
+
+			return
+		}
+
+		await dispatch(GET_BUDGET_SUCCESS, response.data)
 	},
 	[GET_BUDGET_SUCCESS] ({ commit }, payload) {
 		commit(GET_BUDGET_SUCCESS, payload)

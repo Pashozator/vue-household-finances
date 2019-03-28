@@ -9,7 +9,7 @@
 <script>
 	import Operation from '../components/Operation'
 	import { mapActions, mapGetters } from 'vuex'
-	import { REMOVE_OPERATION } from '../store/modules/budget/budget.mutation-types'
+	import { GET_BUDGET, REMOVE_OPERATION } from '../store/modules/budget/budget.mutation-types'
 	import EditOperationDialog from '../components/dialogs/EditOperationDialog'
 
 	export default {
@@ -25,8 +25,12 @@
 				debit: 'getDebit'
 			})
 		},
+		mounted () {
+			this.getBudget()
+		},
 		methods: {
 			...mapActions({
+				getBudget: GET_BUDGET,
 				remove: REMOVE_OPERATION
 			}),
 			openEditOperationDialog: function (operation) {

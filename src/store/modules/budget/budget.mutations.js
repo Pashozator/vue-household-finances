@@ -20,7 +20,8 @@ export const budgetMutations = {
 	[GET_BUDGET] (state) {
 	},
 	[GET_BUDGET_SUCCESS] (state, payload) {
-		Vue.set(state, 'operations', budgetAdapter.replaceAll(payload, state.operations))
+		state.debit = payload.debit
+		Vue.set(state, 'operations', budgetAdapter.replaceAll(payload.operations, state.operations))
 	},
 	[GET_BUDGET_FAILURE] (state) {
 	},
