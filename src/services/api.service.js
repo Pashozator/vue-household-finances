@@ -12,6 +12,10 @@ class ApiService {
 	addOperation (operation) {
 		return axios.post(`${this.base}/operations`, operation).then(response => response.data)
 	}
+
+	editOperation (operation) {
+		return axios.put(`${this.base}/operations/${operation.id}`, operation).then(response => response.data)
+	}
 }
 
 export const api = new ApiService()

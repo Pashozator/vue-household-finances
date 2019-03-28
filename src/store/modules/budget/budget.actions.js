@@ -49,6 +49,14 @@ export const budgetActions = {
 	[ADD_OPERATION_FAILURE] ({ commit }) {
 	},
 	async [EDIT_OPERATION] ({ dispatch }, payload) {
+		const response = await api.editOperation(payload)
+
+		if (response.error != null) {
+			await dispatch(EDIT_OPERATION_FAILURE)
+
+			return
+		}
+
 		await dispatch(EDIT_OPERATION_SUCCESS, payload)
 	},
 	[EDIT_OPERATION_SUCCESS] ({ commit }, payload) {
