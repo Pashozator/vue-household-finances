@@ -16,9 +16,18 @@ import {
 	REMOVE_GOAL_SUCCESS
 } from './goals.mutation-types'
 import { REDUCE_DEBIT } from '../budget/budget.mutation-types'
+import { goalsApi } from '../../../services/goals.api'
 
 export const goalsActions = {
 	async [GET_GOALS] ({ dispatch }, payload) {
+		const response = await goalsApi.getGoals()
+
+		if (response.error != null) {
+			await dispatch(GET_GOALS_FAILURE)
+
+			return
+		}
+
 		await dispatch(GET_GOALS_SUCCESS, payload)
 	},
 	[GET_GOALS_SUCCESS] ({ commit }, payload) {

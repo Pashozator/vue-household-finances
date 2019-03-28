@@ -1,14 +1,14 @@
 <template>
 	<div class="wrapper">
-		<Goal :debit="debit" :goal="goal" :key="goal.id" @realize="realize($event)" @remove="remove($event)" @edit="openEditGoalDialog($event)" v-for="goal in goals"></Goal>
-		<EditGoalDialog :open="editGoalDialog" :goal="goal" @close="closeEditGoalDialog()"></EditGoalDialog>
+		<Goal :debit="debit" :goal="goal" :key="goal.id" @edit="openEditGoalDialog($event)" @realize="realize($event)" @remove="remove($event)" v-for="goal in goals"></Goal>
+		<EditGoalDialog :goal="goal" :open="editGoalDialog" @close="closeEditGoalDialog()"></EditGoalDialog>
 	</div>
 </template>
 
 <script>
 	import Goal from '../components/Goal'
 	import { mapActions, mapGetters } from 'vuex'
-	import { REALIZE_GOAL, REMOVE_GOAL } from '../store/modules/goals/goals.mutation-types'
+	import { GET_GOALS, REALIZE_GOAL, REMOVE_GOAL } from '../store/modules/goals/goals.mutation-types'
 	import EditGoalDialog from '../components/dialogs/EditGoalDialog'
 
 	export default {
@@ -24,8 +24,12 @@
 				debit: 'getDebit'
 			})
 		},
+		mounted () {
+			this.getGoals()
+		},
 		methods: {
 			...mapActions({
+				getGoals: GET_GOALS,
 				remove: REMOVE_GOAL,
 				realize: REALIZE_GOAL
 			}),
