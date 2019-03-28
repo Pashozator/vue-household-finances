@@ -36,6 +36,14 @@ export const goalsActions = {
 	[GET_GOALS_FAILURE] ({ commit }) {
 	},
 	async [ADD_GOAL] ({ dispatch }, payload) {
+		const response = await goalsApi.addGoal(payload)
+
+		if (response.error != null) {
+			await dispatch(ADD_GOAL_FAILURE)
+
+			return
+		}
+
 		await dispatch(ADD_GOAL_SUCCESS, payload)
 	},
 	[ADD_GOAL_SUCCESS] ({ commit }, payload) {
