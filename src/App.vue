@@ -23,9 +23,9 @@
 				</div>
 			</div>
 		</header>
-		<v-menu top offset-y>
+		<v-menu offset-y top>
 			<template v-slot:activator="{ on }">
-				<v-btn class="fab" color="pink" dark absolute fab v-on="on">
+				<v-btn absolute class="fab" color="pink" dark fab v-on="on">
 					<v-icon>add</v-icon>
 				</v-btn>
 			</template>
@@ -33,26 +33,32 @@
 				<v-list-tile @click="openAddOperationDialog()">
 					<v-list-tile-title>Dodaj operację</v-list-tile-title>
 				</v-list-tile>
-				<v-list-tile @click="addGoal()">
+				<v-list-tile @click="openAddGoalDialog()">
 					<v-list-tile-title>Dodaj cel</v-list-tile-title>
 				</v-list-tile>
 			</v-list>
 		</v-menu>
-		<AddOperationDialog :open="addOperationDialog" @close="closeOperationDialog()"></AddOperationDialog>
+		<AddGoalDialog :open="addGoalDialog" @close="closeAddGoalDialog"></AddGoalDialog>
+		<AddOperationDialog :open="addOperationDialog" @close="closeAddOperationDialog()"></AddOperationDialog>
 		<router-view/>
 	</div>
 </template>
 
 <script>
 	import AddOperationDialog from './components/dialogs/AddOperationDialog'
+	import AddGoalDialog from './components/dialogs/AddGoalDialog'
 
 	export default {
 		name: 'app',
-		components: { AddOperationDialog },
+		components: {
+			AddGoalDialog,
+			AddOperationDialog
+		},
 		data: () => ({
 			year: new Date().getFullYear(),
 			title: 'Domowe finanse',
-			addOperationDialog: false
+			addOperationDialog: false,
+			addGoalDialog: false
 		}),
 		methods: {
 			addGoal: function () {
@@ -61,8 +67,14 @@
 			openAddOperationDialog: function () {
 				this.addOperationDialog = true
 			},
-			closeOperationDialog: function () {
+			closeAddOperationDialog: function () {
 				this.addOperationDialog = false
+			},
+			openAddGoalDialog: function () {
+				this.addGoalDialog = true
+			},
+			closeAddGoalDialog: function () {
+				this.addGoalDialog = false
 			}
 		}
 	}

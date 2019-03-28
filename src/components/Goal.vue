@@ -26,15 +26,8 @@
 <script>
 	export default {
 		name: 'Goal',
-		data: () => ({
-			debit: 1000,
-			goal: {
-				label: 'Label',
-				realized: false,
-				value: 8000,
-				description: 'Lorem ipsum dolor sit amet'
-			}
-		}),
+		props: ['goal', 'debit'],
+		data: () => ({}),
 		methods: {
 			realize: function () {
 				console.log('realize goal')
