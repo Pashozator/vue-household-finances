@@ -1,12 +1,13 @@
 <template>
 	<div class="wrapper">
-		<Goal v-for="goal in goals" :goal="goal" :debit="debit" :key="goal.id"></Goal>
+		<Goal :debit="debit" :goal="goal" :key="goal.id" @remove="remove($event)" v-for="goal in goals"></Goal>
 	</div>
 </template>
 
 <script>
 	import Goal from '../components/Goal'
-	import { mapGetters } from 'vuex'
+	import { mapActions, mapGetters } from 'vuex'
+	import { REMOVE_GOAL } from '../store/modules/goals/goals.mutation-types'
 
 	export default {
 		name: 'Goals',
@@ -16,6 +17,11 @@
 			...mapGetters({
 				goals: 'getGoals',
 				debit: 'getDebit'
+			})
+		},
+		methods: {
+			...mapActions({
+				remove: REMOVE_GOAL
 			})
 		}
 	}

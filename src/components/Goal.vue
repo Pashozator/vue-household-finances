@@ -33,7 +33,7 @@
 				console.log('realize goal')
 			},
 			remove: function () {
-				console.log('remove goal')
+				this.$emit('remove', this.goal)
 			},
 			edit: function () {
 				console.log('edit goal')
